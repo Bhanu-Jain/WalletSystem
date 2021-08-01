@@ -1,0 +1,97 @@
+=========================================================
+WALLET SYSTEM ENDPOINTS DETAILS
+=========================================================
+
+Note:- 
+	1. The application runs on localhost on port 9006 with context path="/WalletSystem"
+	2. All the REST API endpoints are secured using JWT token based authentication
+	3. First the user needs to hit the "/UserLoginAPI/authenticateUser" API to authenticate 
+	   and obtain JWT token that wil be used for authentication of further requests.
+	   
+==================
+USER REGISTRATION
+==================
+1. To Validate Registration details for any user:
+	URL -> /RegistrationAPI/validateForRegistration
+	REQUEST METHOD -> POST
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE ON USER VALIDATION
+	
+2. To Register any new user:
+	URL -> /RegistrationAPI/registerUser
+	REQUEST METHOD -> POST
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE WITH THE USER REGISTRATION ID
+
+==================
+USER TRANSACTIONS
+==================
+1. To Load monet into the Wallet:
+	URL -> /TransactionAPI/loadMoneyInWallet/{userId}
+	REQUEST METHOD -> POST
+	INPUT PARAMETERS -> UserTransaction object as @RequestBody along with Integer userId as @PathVariable
+	RESPONSE -> SUCCESS MESSAGE WITH THE USER TRANSACTION ID
+	
+2. To Transfer money from one wallet to other:
+	URL -> /TransactionAPI/transferMoneyWalletToWallet/{userId}/{emailId}
+	REQUEST METHOD -> POST
+	INPUT PARAMETERS -> UserTransaction object as @RequestBody along with Integer userId and String emailId as @PathVariable
+	RESPONSE -> SUCCESS MESSAGE WITH THE AMOUNT, SENDER AND RECIEVER DETAILS
+	
+3. To get a list of all user transaction for any given user:
+	URL -> /TransactionAPI/getAllTransactions/{userId}
+	REQUEST METHOD -> GET
+	INPUT PARAMETERS -> Integer userId as @PathVariable
+	RESPONSE -> LIST OF ALL USER TRANSACTIONS
+	
+4. To get the wallet balance for any given user:
+	URL -> /TransactionAPI/getUserBalance/{userId}
+	REQUEST METHOD -> GET
+	INPUT PARAMETERS -> Integer userId as @PathVariable
+	RESPONSE -> DOUBLE VALUE INDICATING THE WALLET BALANCE
+	
+=============================
+USER LOGIN AND PROFILE UPDATE
+=============================
+1. To Authenticate any User and get JWT Authentication token:
+	URL -> /UserLoginAPI/authenticateUser
+	REQUEST METHOD -> POST
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> JWT RESPONSE OBJECT CONTAINING THE JWT TOKEN FOR AUTHENTICATION
+
+2. To get user details by UserId:
+	URL -> /UserLoginAPI/getUserById/{userId}
+	REQUEST METHOD -> GET
+	INPUT PARAMETERS -> Integer userId as @PathVariable
+	RESPONSE -> USER DETAILS FOR THE GIVEN USERID FETCHED FROM DATABASE (Password not fetched)
+
+3. To get user details by user emailId:
+	URL -> /UserLoginAPI/getUserByEmailId/{emailId}
+	REQUEST METHOD -> GET
+	INPUT PARAMETERS -> String emailId as @PathVariable
+	RESPONSE -> USER DETAILS FOR THE GIVEN EMAILID FETCHED FROM DATABASE (Password not fetched)
+
+4. To update password for any User:
+	URL -> /UserLoginAPI/changeUserpassword
+	REQUEST METHOD -> PUT
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE ON SUCCESSFUL PASSWORD UPDATE
+
+5. To update Mobile number for any User
+	URL -> /UserLoginAPI/changeUserMobile
+	REQUEST METHOD -> PUT
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE ON SUCCESSFUL MOBILE NUMBER UPDATE
+
+6. To update user name for any User:
+	URL -> /UserLoginAPI/changeUserName
+	REQUEST METHOD -> PUT
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE ON SUCCESSFUL USER NAME UPDATE
+
+7. To update user emailId for any User
+	URL -> /UserLoginAPI/changeUserEmail
+	REQUEST METHOD -> PUT
+	INPUT PARAMETERS -> User object as @RequestBody
+	RESPONSE -> SUCCESS MESSAGE ON SUCCESSFUL EMAIL ID UPDATE
+	

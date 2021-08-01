@@ -1,0 +1,61 @@
+Sample data for User Registration Validation -> 
+{
+	"name":"bhanu jain",
+	"emailId":"bhanu123@gmail.com",
+	"password":"bhanu1234",
+	"newPassword":"bhanu1256",
+	"mobileNumber":"9899355601"
+}
+=====================================
+Sample data for User Registration -> 
+{
+	"name":"bhanu jain",
+	"emailId":"bhanu123@gmail.com",
+	"password":"bhanu1234",
+	"newPassword":"bhanu1256",
+	"mobileNumber":"9899355601"
+}
+=====================================
+Sample data for User Login Authentication -> 
+{
+	"name":"bhanu jain",
+	"emailId":"bhanu@gmail.com",
+	"password":"bhanu123"
+}
+========================================
+Sample data for User Password Update -> 
+{
+	"userId":"12121",
+	"password":"bhanu123",
+	"newPassword":"bhanu1256"
+}
+========================================
+Sample data for User Email Update -> 
+{
+	"userId":"12121",
+	"emailId":"bhanu123@gmail.com"
+}
+========================================
+Sample data for User Mobile Update -> 
+{
+	"userId":"12121",
+	"mobileNumber":"9899355601"
+}
+========================================
+Sample data for User Name Update -> 
+{
+	"userId":"12121",
+	"name":"bhanu jain"
+}
+========================================
+Sample data for User Transaction - load money to wallet ->
+{
+	"amount":100.00,
+	"remarks":"adding inr100"
+}
+========================================
+Sample data for User Transaction - transfer money from wallet to another wallet->
+{
+	"amount":100.00,
+	"remarks":"adding inr100"
+}
